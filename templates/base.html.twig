@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="{{app.request.locale}}" translate="no">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+
+			{% block title %}Eltand Store Manager
+			{% endblock %}
+		</title>
+		{{ include("/partials/headerStyle.html.twig") }}
+		{{ include("/partials/headerScript.html.twig") }}
+		{{ include("/partials/routesScripts.html.twig") }}
+
+		{% block metas %}{% endblock %}
+
+	</head>
+
+	<body {% block bodyclass %} class="" {% endblock %}>
+
+		<div class="d-flex">
+			{{ include("/components/menu.html.twig") }}
+
+
+			{% block body %}{% endblock %}
+		</div>
+
+
+	</body>
+	{{ include("/partials/footerScript.html.twig") }}
+</html>

@@ -1,0 +1,44 @@
+version: '3'
+services:
+  sm_web_dev:
+    container_name: sm_web_dev
+    build: .
+    volumes:
+      - smdata:/var/www/html
+    ports:
+      - 8080:80
+      - 443:443
+    depends_on:
+      - sm_mysql_dev
+    environment:
+      - DATABASE_HOST=mysql:host=sm_mysql_dev:6033;dbname=eltand_studio
+
+  sm_mysql_dev:
+    image: mysql:8.0
+    platform: linux/x86_64
+    container_name: sm_mysql_dev
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: eltand_studio
+        MYSQL_USER: app
+        MYSQL_PASSWORD: app
+    ports:
+      - "6033:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  sm_pma_dev:
+    container_name: sm_pma_dev
+    image: phpmyadmin/phpmyadmin
+    links:
+      - sm_mysql_dev
+    environment:
+      PMA_HOST: sm_mysql_dev
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8081:80
+volumes:
+  dbdata:
+  smdata:

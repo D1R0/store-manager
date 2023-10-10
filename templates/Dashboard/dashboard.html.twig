@@ -2,4 +2,26 @@
 
 {% block body %}
 	{# <h1>Main</h1> #}
+	<div class="d-flex flex-wrap w-100">
+		<div class="card-ETD col-12">
+			<div class="headerSection w-100 d-flex">
+				<h3 class="font-weight-normal h3">
+					<i class="fa-solid fa-store"></i>My Stores</h3>
+				<div class="ml-auto">
+					<i class="fa-solid fa-plus h4 font-bold"></i>
+				</div>
+			</div>
+			<hr>
+			<div class="storeSection w-100">
+				{% if stores|length == 0 %}
+					<span>No Store Here</span>
+				{% else %}
+					{% for store in stores %}
+						{{store}}
+					{% endfor %}
+				{% endif %}
+
+			</div>
+		</div>
+	</div>
 {% endblock %}

@@ -19,14 +19,22 @@
 
 	<body {% block bodyclass %} class="" {% endblock %}>
 
-		<div class="d-flex">
+		<div class="d-flex w-100 position-relative">
 			{{ include("/components/menu.html.twig") }}
 
+			<div class="p-4 w-100"> {% block body %}{% endblock %}
+				</div>
+				<div class="position-absolute bottom-0 end-0 mx-2">
+					<span>by
+						<b>
+							<a href="https://eltand.com">
+								ELTAND</b>
+						</a>
+					</span>
+				</div>
+			</div>
 
-			{% block body %}{% endblock %}
-		</div>
 
-
-	</body>
-	{{ include("/partials/footerScript.html.twig") }}
-</html>
+		</body>
+		{{ include("/partials/footerScript.html.twig") }}
+	</html>

@@ -1,0 +1,19 @@
+$color_1: #333;
+$color_2: #fff;
+$font-family_1: 'Montserrat', sans-serif;
+$background-color_1: #c9d6ff;
+$background-color_2: #fff;
+$background-color_3: #512da8;
+$background-color_4: transparent;
+$background-color_5: #eee;
+$border-color_1: #fff;
+
+body {
+	background-color: $background-color_1;
+	background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+}

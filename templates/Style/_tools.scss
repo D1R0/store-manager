@@ -1,0 +1,60 @@
+.mb-5 {
+    margin-bottom: 3rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.ml-2 {
+    margin-left: 0.5rem;
+}
+
+.mr-2 {
+    margin-right: 0.5rem;
+}
+
+.pr-2 {
+    padding-right: 0.5rem;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.vh-50 {
+    height: 50vh;
+}
+
+.font-size-20 {
+    font-size: 20px !important;
+}
+
+.font-size-15 {
+    font-size: 15px !important;
+}
+
+table i {
+    cursor: pointer;
+
+    &:hover {
+        color: var(--bs-link-hover-color);
+    }
+}
+
+.fitContent70 {
+    max-height: 70vh;
+    overflow-y: auto;
+}

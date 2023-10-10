@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="{{app.request.locale}}" translate="no">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+
+			{% block title %}Login | Eltand Store Manager
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="style/main.css">
+		{{ include("/partials/headerStyle.html.twig") }}
+		{{ include("/partials/headerScript.html.twig") }}
+		{{ include("/partials/routesScripts.html.twig") }}
+
+
+	</head>
+	<body>
+
+		<div class="loginSection col-lg-6  col-sm-12" id="container">
+			<div class="form-container sign-in col-lg-6 col-sm-12">
+				<form method="post">
+					{% if error %}
+						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+					{% endif %}
+
+					{% if app.user %}
+						<div class="mb-3">
+							You are logged in as
+							{{ app.user.userIdentifier }},
+							<a href="{{ path('app_logout') }}">Logout</a>
+						</div>
+					{% endif %}
+
+					<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+					<label for="inputUsername">Username</label>
+					<input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus placeholder="Username">
+					<label for="inputPassword">Password</label>
+					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Password">
+
+					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+					<button class="btn btn-lg btn-primary" type="submit">
+						Sign in
+					</button>
+				</form>
+			</div>
+			<div class="toggle-container  col-sm-12">
+				<div class="toggle">
+					<div class="toggle-panel toggle-right">
+						<h1>Welcome Back!</h1>
+						<p>Enter your Personal details to use all of site features</p>
+						<button class="hidden" id="login">Sign In</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

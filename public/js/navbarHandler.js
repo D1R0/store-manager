@@ -1,14 +1,15 @@
-const navbarHandler = {
-    init: function(){
-        const smallComponent = $j('#smallComponent');
-        const largeComponent = $j('#largeComponent');
-        const toggleButton = $j('#toggleButton');
-        toggleButton.on('click', function() {
-            smallComponent.toggle('hidden');
-            largeComponent.toggle('hidden');
-        });
-    }
-}
-$j(document).ready(function(){
-    navbarHandler.init()
+$j(".sidebar ul li").on('click', function () {
+    $j(".sidebar ul li.active").removeClass('active');
+    $j(this).addClass('active');
+});
+
+$j('.open-btn').on('click', function () {
+    $j('.sidebar').addClass('active');
+
+});
+
+
+$j('.close-btn').on('click', function () {
+    $j('.sidebar').removeClass('active');
+
 })

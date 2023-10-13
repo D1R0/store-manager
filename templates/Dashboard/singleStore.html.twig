@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="d-flex flex-wrap w-100">
+		<div class="card-ETD col-12">
+			<div class="headerSection w-100 d-flex">
+				<h3 class="font-weight-normal h3">
+					<i class="fa-solid fa-store"></i>
+					{{store.Name}}</h3>
+
+			</div>
+			<hr>
+			<div class="storeSection w-100 my-2">
+				<table class="storeTabels">
+					<thead>
+						<tr>
+							<th>Order</th>
+							<th>Date</th>
+							<th>Status</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for order in orders %}
+							<tr>
+								<td>
+									<a href="{{path('singleOrder',{store:store.id,id:order.id})}}">
+										{{order.id ~ " - " ~ order.billing.first_name ~ " " ~ order.billing.last_name }}
+									</a>
+								</td>
+								<td>{{order.date_created}}</td>
+								<td>{{order.status}}</td>
+								<td>{{order.total}}</td>
+							</tr>
+
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

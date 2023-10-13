@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="d-flex flex-wrap w-100">
+		<div class="card-ETD col-lg-8 col-md-8 col-sm-8">
+			<div class="headerSection w-100 ">
+				<h3 class="font-weight-normal h3">
+					<a href="{{path('singleStore',{id:store.id})}}">
+						<b>{{store.name}}</b>
+					</a>
+					/ Order #{{order.id}}
+					details
+				</h3>
+				<p>Payment via
+					{{order.payment_method_title}}</p>
+				<br>
+				<hr>
+				<br>
+				<div class="bodyOrder d-flex flex-wrap">
+					<div class="col-md-4 col-sm-12 p-2">
+						<h5 class="h5">General
+						</h5>
+
+						<label for="">Status:</label>
+						<select name="" id="" class="select2 form-control">
+							<option value="">Panding payment</option>
+							<option value="">Proccesing</option>
+							<option value="">On Hold</option>
+							<option value="">Cancelled</option>
+							<option value="">Refund</option>
+							<option value="">Failed</option>
+							<option value="">Draf</option>
+						</select>
+					</div>
+					<div class="col-md-4 col-sm-12 p-2">
+						<h5 class="h5">Billing</h5>
+						<p>
+							{{ order.billing.first_name }}
+							{{ order.billing.last_name }}<br>
+							{{ order.billing.company }}<br>
+							{{ order.billing.address_1 }}<br>
+							{{ order.billing.address_2 }}<br>
+							{{ order.billing.city }},
+							{{ order.billing.state }}
+							{{ order.billing.postcode }}<br>
+							{{ order.billing.country }}<br>
+							Email:
+							{{ order.billing.email }}<br>
+							Phone:
+							{{ order.billing.phone }}
+						</p>
+					</div>
+
+					<div class="col-md-4 col-sm-12 p-2">
+						<h5 class="h5">Shipping</h5>
+						<p>
+							{{ order.shipping.first_name }}
+							{{ order.shipping.last_name }}<br>
+							{{ order.shipping.company }}<br>
+							{{ order.shipping.address_1 }}<br>
+							{{ order.shipping.address_2 }}<br>
+							{{ order.shipping.city }},
+							{{ order.shipping.state }}
+							{{ order.shipping.postcode }}<br>
+							{{ order.shipping.country }}<br>
+							Phone:
+							{{ order.shipping.phone }}
+						</p>
+					</div>
+				</div>
+			</p>
+		</div>
+	</div>
+{% endblock %}

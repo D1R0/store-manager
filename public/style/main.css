@@ -157,7 +157,6 @@ table i:hover {
 
 .sign-in {
   left: 0;
-  width: 50%;
   z-index: 2;
 }
 
@@ -182,13 +181,6 @@ table i:hover {
 }
 .loginSection.active .toggle-right {
   transform: translateX(200%);
-}
-
-.sign-up {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
 }
 
 .social-icons {
@@ -254,13 +246,52 @@ table i:hover {
   transform: translateX(0);
 }
 
-.largeComponent {
+@media (max-width: 992px) {
+  .toggle-container {
+    display: none;
+  }
+}
+#side_nav {
   background: linear-gradient(to right, #5831b5, #512da8);
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  min-width: 250px;
+  max-width: 250px;
+  transition: all 0.3s;
 }
 
+.content {
+  min-height: 100vh;
+  width: 100%;
+}
+
+hr.h-color {
+  background: #eee;
+}
+
+.sidebar li.active {
+  background: #eee;
+  border-radius: 8px;
+}
+
+.sidebar li.active a,
+.sidebar li.active a:hover {
+  color: #512da8;
+}
+
+.sidebar li a {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  #side_nav {
+    margin-left: -250px;
+    position: absolute;
+    min-height: 100vh;
+    z-index: 1;
+  }
+  #side_nav.active {
+    margin-left: 0;
+  }
+}
 .card-ETD {
   padding: 1.5rem;
   background-color: white;
@@ -268,4 +299,9 @@ table i:hover {
   color: #333;
   border-radius: 30px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+}
+
+.contentSection {
+  overflow-y: auto;
+  max-height: 100vh;
 }/*# sourceMappingURL=main.css.map */
